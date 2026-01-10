@@ -1,11 +1,11 @@
-const http = require('http');//backend/server.js
 const app = require('./app');
-const port = process.env.PORT || 3000;
+const connectDB = require('./db/db'); // ✅ CORRECT PATH
 
+connectDB();
 
-const server = http.createServer(app);
+const PORT = process.env.PORT || 4000;
 
-server.listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
-
+ 
